@@ -16,15 +16,17 @@ const MealsNavigator = createStackNavigator({
   },
   MealDetails: { screen: MealDetailScreen }
 },
+  // expo default header 
   {
     defaultNavigationOptions: {
       headerStyle: {
+        height: 60,
         backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor
       },
       headerTintColor: Platform.OS === 'android' ? Colors.accentColor : 'black',
       headerTitleStyle: {
         fontWeight: 'bold',
-        fontSize: 33,
+        fontSize: 12,
         fontFamily: 'roboto-bold'
       },
     }

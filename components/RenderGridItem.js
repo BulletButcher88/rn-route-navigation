@@ -10,9 +10,11 @@ const RenderGridItem = props => {
         onPress={props.onSelect}>
         {props.image ? <Image
           style={styles.photoStyle}
+
           source={{ uri: props.image }}
         /> : null}
       </TouchableOpacity >
+
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{props.title}</Text>
         <Text style={styles.descriptionText}>{props.description}</Text>
@@ -29,11 +31,22 @@ const styles = StyleSheet.create({
     height: 180,
     width: 300,
     borderRadius: 20,
+    borderRadius: 22,
+    borderColor: 'black',
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
+    padding: 15,
+    justifyContent: 'flex-end',
+    alignContent: 'space-around'
+
+
   },
   textContainer: {
     marginLeft: 18,
     height: 80,
-    maxWidth: 300
+    maxWidth: 280,
+
   },
   titleText: {
     marginTop: 5,
