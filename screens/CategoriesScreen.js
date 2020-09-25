@@ -14,7 +14,7 @@ const CategoriesScreen = props => {
           props.navigation.navigate({
             routeName: 'CategoryMeals',
             params: {
-              categoryId: props.item.id
+              categoryId: itemData.item.id
             }
           });
         }} />
@@ -23,6 +23,9 @@ const CategoriesScreen = props => {
 
   return (
     <ScrollView>
+      <View style={styles.welcomeTextContainer}>
+        <Text style={styles.welcomeText}>Supporting the local music community, makes you a legend</Text>
+      </View>
       <FlatList
         keyExtractor={(item, index) => item.id}
         horizontal={true}
@@ -32,7 +35,7 @@ const CategoriesScreen = props => {
         <View style={styles.displayBox}></View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.displayBoxContainer}>
-        <View style={styles.displayBox}></View>
+        <View style={{ ...styles.displayBox, backgroundColor: '#DADADA' }}></View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.displayBoxContainer}>
         <View style={styles.displayBox}></View>
@@ -42,10 +45,20 @@ const CategoriesScreen = props => {
 }
 
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'Categories',
+  headerTitle: 'GIG GUIDE',
 };
 
 const styles = StyleSheet.create({
+  welcomeTextContainer: {
+    margin: 27
+  },
+  welcomeText: {
+    fontSize: 27,
+    color: '#A30232',
+    fontFamily: 'roboto',
+    flex: 1,
+    paddingHorizontal: 10
+  },
   displayBoxContainer: {
     flex: 1,
     marginHorizontal: 15,

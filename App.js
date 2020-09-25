@@ -12,7 +12,9 @@ const fetchFonts = () => {
       'open-san': require('./assets/font/OpenSans-Bold.ttf'),
       'open-san-bold': require('./assets/font/OpenSans-Regular.ttf'),
       'ambit': require('./assets/font/Ambit-Regular.ttf'),
-      'ambit-bold': require('./assets/font/Ambit-Bold.ttf')
+      'ambit-bold': require('./assets/font/Ambit-Bold.ttf'),
+      'roboto': require('./assets/font/Roboto-Regular.ttf'),
+      'roboto-bold': require('./assets/font/Roboto-Regular.ttf')
     }))
 }
 
