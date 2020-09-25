@@ -1,57 +1,63 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform } from 'react-native';
-import Colors from '../constants/Colors'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { CATEGORIES } from '../data/dummyData';
+import RenderGridItem from '../components/RenderGridItem'
 
 const CategoriesScreen = props => {
-  const renderGridItem = itemData => {
+  const renderList = itemData => {
     return (
-      <TouchableOpacity
-        style={{ ...styles.girdItems, backgroundColor: itemData.item.color }}
-        onPress={() => {
+      <RenderGridItem
+        title={itemData.item.title}
+        color={itemData.item.color}
+        image={itemData.item.image}
+        onSelect={() => {
           props.navigation.navigate({
             routeName: 'CategoryMeals',
             params: {
-              categoryId: itemData.item.id
+              categoryId: props.item.id
             }
           });
-        }}>
-        <Text>{itemData.item.title}</Text>
-      </TouchableOpacity>
+        }} />
     )
   }
 
   return (
-    <FlatList
-      keyExtractor={(item, index) => item.id}
-      numColumns={2}
-      data={CATEGORIES}
-      renderItem={renderGridItem} />
+    <ScrollView>
+      <FlatList
+        keyExtractor={(item, index) => item.id}
+        horizontal={true}
+        data={CATEGORIES}
+        renderItem={renderList} />
+      <TouchableOpacity style={{ flex: 1, marginHorizontal: 15 }}>
+        <View style={styles.displayBox}></View>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.displayBoxContainer}>
+        <View style={styles.displayBox}></View>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.displayBoxContainer}>
+        <View style={styles.displayBox}></View>
+      </TouchableOpacity>
+    </ScrollView>
   )
 }
 
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meals Categories',
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor
-  },
-  headerTintColor: Platform.OS === 'android' ? Colors.accentColor : Colors.primaryColor,
-  headerTitleStyle: {
-    fontWeight: 'bold',
-    fontSize: 23
-  },
+  headerTitle: 'Categories',
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  displayBoxContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginHorizontal: 15,
+    marginTop: 15
   },
-  girdItems: {
+  displayBox: {
     flex: 1,
-    margin: 15,
-    height: 150,
+    padding: 15,
+    height: 200,
+    backgroundColor: "#fff",
+    justifyContent: 'center',
+    paddingBottom: 15
   }
 })
 

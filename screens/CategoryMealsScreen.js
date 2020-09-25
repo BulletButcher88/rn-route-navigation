@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import { CATEGORIES } from '../data/dummyData'
+import { CATEGORIES } from '../data/dummyData';
+import Colors from '../constants/Colors';
 
 const getCategoryData = (navData) => {
   if (!navData) {
@@ -33,10 +34,6 @@ CategoryMealsScreen.navigationOptions = navigationData => {
   const navData = getCategoryData(navigationData)
   return {
     headerTitle: navData.title,
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      fontSize: 23
-    },
   }
 }
 
