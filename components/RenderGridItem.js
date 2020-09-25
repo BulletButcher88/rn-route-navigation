@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet, Image } from 'react-native'
+import Colors from '../constants/Colors'
 
 const RenderGridItem = props => {
   return (
@@ -7,13 +8,14 @@ const RenderGridItem = props => {
       <TouchableOpacity
         style={{ ...styles.girdItems, backgroundColor: props.color }}
         onPress={props.onSelect}>
-        <Image
+        {props.image ? <Image
           style={styles.photoStyle}
           source={{ uri: props.image }}
-        />
+        /> : null}
       </TouchableOpacity >
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{props.title}</Text>
+        <Text style={styles.descriptionText}>{props.description}</Text>
       </View>
     </View>
   )
@@ -30,15 +32,19 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     marginLeft: 18,
-    height: 80
+    height: 80,
+    maxWidth: 300
   },
   titleText: {
-    flex: 1,
+    marginTop: 5,
     fontSize: 20,
     color: 'black',
-    position: 'absolute',
-    top: '10%',
-    fontFamily: 'roboto'
+    fontFamily: 'roboto',
+    color: Colors.fadedTextGrey
+  },
+  descriptionText: {
+    marginVertical: 5,
+    color: Colors.fadedTextGrey
   },
   photoStyle: {
     flex: 1,

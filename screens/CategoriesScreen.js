@@ -10,6 +10,7 @@ const CategoriesScreen = props => {
         title={itemData.item.title}
         color={itemData.item.color}
         image={itemData.item.image}
+        description={itemData.item.description}
         onSelect={() => {
           props.navigation.navigate({
             routeName: 'CategoryMeals',
