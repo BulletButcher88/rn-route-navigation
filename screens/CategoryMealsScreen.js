@@ -1,6 +1,13 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
-import { GIGS } from '../data/dummyData';
+import GigItem from '../components/GigItem';
+import { GIGS, CATEGORIES } from '../data/dummyData';
+
+const getCategoryPageInfo = navData => {
+  const catId = navData.navigation.getParam('categoryId')
+  const categoryPath = CATEGORIES.find((cat) => cat.id === catId)
+  return categoryPath
+}
 
 const getCategoryData = (navData) => {
   if (!navData) {
@@ -10,23 +17,36 @@ const getCategoryData = (navData) => {
   const displayGigs = GIGS.filter((gig) => {
     return gig.categoryId.indexOf(catId) >= 0
   }
+
   )
-  return (
-    displayGigs
-  )
+  switch (catId) {
+    case 'c1':
+      return (
+        displayGigs
+      )
+    default: {
+      return
+    }
+  }
 }
+
+
 
 const CategoryMealsScreen = props => {
   const selectedCategory = getCategoryData(props)
+  const categoryPageInfo = getCategoryPageInfo(props)
+
 
   const renderItem = (itemData) => {
     return (
-      <View><Text>{itemData.item.title}</Text></View>
+      <View>
+        <GigItem {...itemData} />
+      </View>
     )
   }
 
   return (
-    <View style={styles.screen}>
+    <View style={{ ...styles.screen, backgroundColor: categoryPageInfo.color }}>
       <FlatList
         data={selectedCategory}
         keyExtractor={(item, index) => item.id}
@@ -44,7 +64,7 @@ const CategoryMealsScreen = props => {
 
 
 CategoryMealsScreen.navigationOptions = navigationData => {
-  const navData = getCategoryData(navigationData)
+  const navData = getCategoryPageInfo(navigationData)
   return {
     headerTitle: navData.title,
   }
@@ -58,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
-    fontSize: 70,
+    fontSize: 40,
     fontFamily: 'ambit-bold',
     padding: 20
   }
