@@ -1,4 +1,5 @@
 import Category from '../models/category';
+import Gig from '../models/gigs'
 
 export const CATEGORIES = [
   new Category('c1', 'Gig Guide', '#f5428d', 'https://s3-ap-southeast-2.amazonaws.com/static.moshtix.com.au/directory/Moshpix/539/01_77280display.jpg', 'Unique music in your local area, hosted by local venues'),
@@ -13,3 +14,58 @@ export const CATEGORIES = [
     'https://lh3.googleusercontent.com/proxy/wBOwTA4aHxzILqb_paArqomt_ZFRJF51ZaGU-1SyQLQ-n6TJrp_v7F-o4anTV7jT0FRfhXY5ZrUg30FgXppvtUbQCGtqR657_DimCDZznmQMfB7HVJtuxmU3EJsEdzJqcBncZYI6QQ'),
   new Category('c7', 'Breakfast', '#9eecff', 'https://media.timeout.com/images/105360940/image.jpg'),
 ];
+
+
+export const GIGS = [
+  new Gig(
+    "01",
+    ['c1', 'c5'],
+    "MEGA TOTE FESTIVAL",
+    30,
+    "https://www.monsterchildren.com/wp-content/uploads/2016/01/Art-Brixton-Broadcast-Melbourne-850x1194.jpg",
+    "The gang at Brixton are staying pretty tight lipped so far, but we do know that all the bands above will be blowing minds on February 27th at the Tote Hotel in Collingwood, Melbourne. And it’s Free! More to come folks. Stay tuned! See below recaps from previous events in both Berlin and Barcelona",
+    ["Beaches", "The UV Race", "Ausmuteants", 'The Living Eyes'],
+    '12/12/2020',
+    6.5,
+    "The Tote Hotel",
+    '230',
+    [-37.7994, 144.9872],
+    false,
+    false,
+    true
+  ),
+  new Gig(
+    "02",
+    ['c1', 'c4'],
+    "Ghost of Cape Man",
+    30,
+    "https://4.bp.blogspot.com/_lupM0lp1FvU/SrH2NNscngI/AAAAAAAAAuE/XORBwbl_FCA/s320/ghostman.jpg",
+    "The human embodiment of the unexplainable realms between man and electro-tape...",
+    ["artist1", "artist2", "artist3"],
+    '18/11/2020',
+    2.5,
+    "The Old Bar",
+    '175',
+    [-37.798333, 144.977111],
+    false,
+    false,
+    false
+  ),
+  new Gig(
+    "03",
+    ['c2', 'c5'],
+    "SHOULD NOT SHOW",
+    30,
+    "NO",
+    "NOT WORKING",
+    ["TESTTEST", "artist3"],
+    '18/11/2020',
+    2.5,
+    "NO BAR",
+    '175',
+    [-37.798333, 144.977111],
+    false,
+    false,
+    false
+  ),
+]

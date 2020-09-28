@@ -9,16 +9,25 @@ const RenderGridItem = props => {
   if (Platform.OS == 'android' && Platform.Version >= 21) {
     TouchableCmp = TouchableNativeFeedback
   }
-  return (
-    <View>
-      <TouchableCmp
-        style={{ ...styles.girdItems, backgroundColor: props.color }}
-        onPress={props.onSelect}>
-        {props.image ? <Image
-          style={styles.photoStyle}
 
-          source={{ uri: props.image }}
-        /> : null}
+  const ContainerImage = (imageUri) => {
+    return (
+      imageUri ? <Image
+        style={styles.photoStyle}
+        source={{ uri: imageUri.image }}
+      /> : null
+    )
+  }
+
+  return (
+    <View style={styles.girdItems}>
+      <TouchableCmp
+        style={{
+          ...styles.touchableGrid,
+          backgroundColor: props.color,
+        }}
+        onPress={props.onSelect}>
+        <ContainerImage {...props} />
       </TouchableCmp >
 
       <View style={styles.textContainer}>
@@ -34,10 +43,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
     marginHorizontal: 10,
-    height: 180,
+    height: 280,
     width: 300,
-    borderRadius: 20,
-    borderRadius: 22,
     borderColor: 'black',
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
@@ -45,30 +52,31 @@ const styles = StyleSheet.create({
     padding: 15,
     justifyContent: 'flex-end',
     alignContent: 'space-around'
-
-
+  },
+  touchableGrid: {
+    flex: 1,
+    borderRadius: 20,
   },
   textContainer: {
-    marginLeft: 18,
+    marginLeft: 5,
     height: 80,
     maxWidth: 280,
   },
   titleText: {
-    marginHorizontal: 12,
     marginTop: 5,
     fontSize: 20,
     color: 'black',
     fontFamily: 'roboto',
-    textAlign: 'right'
   },
   descriptionText: {
     marginVertical: 5,
-    marginHorizontal: 12,
+    marginHorizontal: 5,
     color: Colors.fadedTextGrey
   },
   photoStyle: {
     flex: 1,
     borderRadius: 20,
+    margin: 10
   }
 })
 export default RenderGridItem
