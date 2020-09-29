@@ -6,7 +6,7 @@ class Article {
     this.date = date;
     this.author = author;
     this.image = image;
-    this.location = location
+    this.location = location;
   }
 }
 

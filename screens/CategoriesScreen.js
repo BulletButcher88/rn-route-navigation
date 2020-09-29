@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
-import { CATEGORIES } from '../data/dummyData';
+import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem'
 
 const CategoriesScreen = props => {
+
   const renderList = itemData => {
     return (
       <RenderGridItem
@@ -22,26 +23,34 @@ const CategoriesScreen = props => {
     )
   }
 
+  const articleRender = artDetail => {
+    return (
+      <TouchableOpacity style={styles.displayBoxContainer}>
+        <View style={{ ...styles.displayBox, backgroundColor: '#AAAAAA' }}>
+          <Text>{artDetail.item.heading}</Text>
+          <Text>{artDetail.item.article}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+
   return (
     <ScrollView>
       <View style={styles.welcomeTextContainer}>
         <Text style={styles.welcomeText}>Supporting the local music community, makes you a legend</Text>
       </View>
+
       <FlatList
         keyExtractor={(item, index) => item.id}
         horizontal={true}
         data={CATEGORIES}
         renderItem={renderList} />
 
-      <TouchableOpacity style={{ flex: 1, marginHorizontal: 15 }}>
-        <View style={styles.displayBox}></View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.displayBoxContainer}>
-        <View style={{ ...styles.displayBox, backgroundColor: '#DADADA' }}></View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.displayBoxContainer}>
-        <View style={styles.displayBox}></View>
-      </TouchableOpacity>
+      <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={ARTICLES}
+        renderItem={articleRender} />
+
     </ScrollView>
   )
 }
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
   displayBoxContainer: {
     flex: 1,
     marginHorizontal: 15,
-    marginTop: 15
+    marginTop: 15,
   },
   displayBox: {
     flex: 1,
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
     height: 200,
     backgroundColor: "#fff",
     justifyContent: 'center',
-    paddingBottom: 15
+    paddingBottom: 15,
   }
 })
 

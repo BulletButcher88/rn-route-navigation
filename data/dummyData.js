@@ -88,6 +88,15 @@ export const ARTICLES = [
     '6/09/2020',
     'Georgie Tunny',
     'https://www.abc.net.au/cm/rimage/12618950-16x9-xlarge.jpg?v=2',
-    'Melbourne'
+    'Melbourne',
+  ),
+  new Article(
+    'art3',
+    'DARKFIELD',
+    'Astounding audio design creates a myriad of journeys into the imagination. A shipping container at Elizabeth Quay, blending in with the eclectic temporary FringeWorld stalls of The Palace Society. Milling around the door, we are greeted with strict instructions to turn off mobile phones, remove smart watches and any potential light source. Warned of potential claustrophobia and sensory overload, we are given a last chance to opt out. Even for immersive theatre, these are strict and stern conditions.',
+    '6/09/2020',
+    'Elizabeth Quay,',
+    'https://static.wixstatic.com/media/fbf7fc_888b4fbc9ab544b1b77b48a32ea4b949~mv2.png/v1/fill/w_1200,h_376,al_c,q_90,usm_0.66_1.00_0.01/DARKFIELD%20AUSTRALIA%20LOGO%203000px.webp',
+    'Melbourne',
   )
 ]
