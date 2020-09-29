@@ -32,6 +32,7 @@ const CategoriesScreen = props => {
         horizontal={true}
         data={CATEGORIES}
         renderItem={renderList} />
+
       <TouchableOpacity style={{ flex: 1, marginHorizontal: 15 }}>
         <View style={styles.displayBox}></View>
       </TouchableOpacity>

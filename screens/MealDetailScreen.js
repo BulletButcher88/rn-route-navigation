@@ -2,9 +2,10 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const MealDetailScreen = props => {
+  const catId = props.navigation.getParam('gigId')
   return (
     <View style={styles.screen}>
-      <Text>Meal Detail</Text>
+      <Text>{catId}</Text>
       <Button title="Go back to TOP" onPress={() => {
         props.navigation.popToTop()
       }} />

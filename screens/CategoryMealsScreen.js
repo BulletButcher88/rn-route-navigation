@@ -40,7 +40,15 @@ const CategoryMealsScreen = props => {
   const renderItem = (itemData) => {
     return (
       <View>
-        <GigItem {...itemData} />
+        <GigItem {...itemData}
+          onSelectGig={() => {
+            props.navigation.navigate({
+              routeName: 'MealDetails',
+              params: {
+                gigId: itemData.item.id
+              }
+            });
+          }} />
       </View>
     )
   }
@@ -50,11 +58,9 @@ const CategoryMealsScreen = props => {
       <FlatList
         data={selectedCategory}
         keyExtractor={(item, index) => item.id}
-        renderItem={renderItem} />
+        renderItem={renderItem}
+      />
 
-      <Button title="Go To Meals" onPress={() => {
-        props.navigation.navigate('MealDetails')
-      }} />
       <Button title="Go Back" onPress={() => {
         props.navigation.goBack()
       }} />

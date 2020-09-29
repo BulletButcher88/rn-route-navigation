@@ -1,8 +1,9 @@
 import Category from '../models/category';
 import Gig from '../models/gigs'
+import Article from '../models/article'
 
 export const CATEGORIES = [
-  new Category('c1', 'Gig Guide', '#f5428d', 'https://s3-ap-southeast-2.amazonaws.com/static.moshtix.com.au/directory/Moshpix/539/01_77280display.jpg', 'Unique music in your local area, hosted by local venues'),
+  new Category('c1', 'Gig Guide', '#f5428d', 'https://www.beat.com.au/wp-content/uploads/2019/05/amylthesniffers_thetote_090519_joshuabraybrook-8.jpg', 'Unique music in your local area, hosted by local venues'),
   new Category('c2', 'Local Pubs', '#f54242', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqIJJYvZfMwSYUpSHFl-Sb19_s1gixE2a2Hw&usqp=CAU', 'Traveling alone? Let us introduce you to a local who is going to a gig nearby.'),
   new Category('c3', 'Local Host', '#f5a442',
     'https://www.hiddencitysecrets.com.au/wp-content/uploads/2018/06/The-Old-Bar-Dive-Bar-Johnston-St-Fitzroy-Bar-Bars-Cocktail-Top-Best-Good-Rock-Live-Music-Gigs-Gig-Beer-001-1.jpg',
@@ -15,10 +16,9 @@ export const CATEGORIES = [
   new Category('c7', 'Breakfast', '#9eecff', 'https://media.timeout.com/images/105360940/image.jpg'),
 ];
 
-
 export const GIGS = [
   new Gig(
-    "01",
+    "gig01",
     ['c1', 'c5'],
     "MEGA TOTE FESTIVAL",
     30,
@@ -35,13 +35,13 @@ export const GIGS = [
     true
   ),
   new Gig(
-    "02",
+    "gig02",
     ['c1', 'c4'],
     "Ghost of Cape Man",
     30,
     "https://4.bp.blogspot.com/_lupM0lp1FvU/SrH2NNscngI/AAAAAAAAAuE/XORBwbl_FCA/s320/ghostman.jpg",
     "The human embodiment of the unexplainable realms between man and electro-tape...",
-    ["artist1", "artist2", "artist3"],
+    ["Melvins", "Helmet", "Slugmother"],
     '18/11/2020',
     2.5,
     "The Old Bar",
@@ -53,12 +53,12 @@ export const GIGS = [
   ),
   new Gig(
     "03",
-    ['c2', 'c5'],
-    "SHOULD NOT SHOW",
+    ['c1', 'c2', 'c5'],
+    "Rowland S Howard",
     30,
-    "NO",
+    "https://4.bp.blogspot.com/_lupM0lp1FvU/SbYngRS-qgI/AAAAAAAAAkI/eSVKDWjjpvA/s320/rowland.gif",
     "NOT WORKING",
-    ["TESTTEST", "artist3"],
+    ["RSH", "Magic Dirt"],
     '18/11/2020',
     2.5,
     "NO BAR",
@@ -68,4 +68,26 @@ export const GIGS = [
     false,
     false
   ),
+]
+
+
+export const ARTICLES = [
+  new Article(
+    'art1',
+    'Best Live Music Venues in Melbourne',
+    'Sometimes, it feels like live music is an endangered species in Melbourne. Every other month a treasured pub is under attack from developers or Johnny-come-lately residents with sensitive ears. In spite of these challenges, our scene is flourishing. Any night of the week, it\'s easy to find quality live music on somewhere.Whether you like folk, indie or heavy metal, these spots have you covered.',
+    '27/10/2019',
+    'Mark Butcher',
+    'https://cdn.broadsheet.com.au/cache/91/c7/91c770eb815f19e6463c094217453bd1.jpg',
+    'Melbourne'
+  ),
+  new Article(
+    'art2',
+    'COVID Artist',
+    'It has been a tough year for musicians.Seemingly overnight, tours were postponed indefinitely or cancelled altogether.Theatre doors remain closed and locked, heavy chains wrapped around their handles.',
+    '6/09/2020',
+    'Georgie Tunny',
+    'https://www.abc.net.au/cm/rimage/12618950-16x9-xlarge.jpg?v=2',
+    'Melbourne'
+  )
 ]

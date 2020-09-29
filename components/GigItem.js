@@ -7,19 +7,20 @@ const GigItem = props => {
 
   const artistList = (itemData, index) => {
     return (
-      <View>
-        <Text
-          key={index}
-          style={styles.artistList}
-        >
-          {itemData}
-        </Text>
+      <View style={styles.artistContainer}>
+        {itemData ?
+          itemData.map((data, index) => <Text
+            key={index}
+            style={styles.artistList}
+          >
+            {data}
+          </Text>) : null}
       </View>
     )
   }
 
   return (
-    <TouchableOpacity style={styles.cardContainer}>
+    <TouchableOpacity style={styles.cardContainer} onPress={props.onSelectGig}>
       <Text style={styles.titleStyle}>{title}</Text>
       <View style={styles.venueDetailContainer}>
         <Text style={styles.venueText}>{venue}</Text>
@@ -63,12 +64,18 @@ const styles = StyleSheet.create({
   },
   posterUrl: {
     width: 360,
-    height: 370
+    height: 170
+  },
+  artistContainer: {
+    flex: 1,
+    flexDirection: 'row'
   },
   artistList: {
     flex: 1,
-    padding: 10,
-    justifyContent: 'space-around'
+    padding: 2,
+    justifyContent: 'space-around',
+    margin: 5,
+    fontFamily: 'roboto-bold'
   }
 })
 
