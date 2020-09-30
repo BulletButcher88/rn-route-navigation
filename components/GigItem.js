@@ -7,11 +7,11 @@ const GigItem = props => {
 
   const artistList = (itemData, index) => {
     return (
-      <View style={styles.artistContainer}>
+      <View style={styles.artistNameContainer}>
         {itemData ?
           itemData.map((data, index) => <Text
             key={index}
-            style={styles.artistList}
+            style={styles.artistNameText}
           >
             {data}
           </Text>) : null}
@@ -27,7 +27,7 @@ const GigItem = props => {
         <Text style={styles.venueText}>$ {doorPrice}</Text>
         {/* <Text>{location}</Text> */}
       </View>
-      <View style={styles.venueDetailContainer}>
+      <View style={styles.artistContainer}>
         {artistList(performingArtist)}
       </View>
       <Image source={{ uri: imageUrl }} style={styles.posterUrl} />
@@ -41,40 +41,43 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
-    padding: 15,
-    width: 350,
-    backgroundColor: 'white'
+    backgroundColor: 'black',
+    marginVertical: 2
   },
   titleStyle: {
     fontFamily: 'roboto-bold',
     fontSize: 25,
-    color: 'pink',
+    color: 'white',
     fontWeight: 'bold'
   },
   venueDetailContainer: {
-    width: '100%',
-    flexDirection: 'row',
     flex: 1,
-    justifyContent: 'space-around'
+    flexDirection: 'row',
+    width: "50%",
+    justifyContent: 'space-between'
   },
   venueText: {
     fontSize: 18,
-    color: 'grey'
+    color: 'grey',
   },
   posterUrl: {
-    width: 360,
+    width: 370,
     height: 170
   },
   artistContainer: {
     flex: 1,
-    flexDirection: 'row'
+    width: '100%',
+    justifyContent: "center"
   },
-  artistList: {
+  artistNameContainer: {
+    flexDirection: 'row',
+  },
+  artistNameText: {
     flex: 1,
-    padding: 2,
     justifyContent: 'space-around',
-    margin: 5,
+    marginHorizontal: 2,
+    padding: 2,
+    color: 'white',
     fontFamily: 'roboto-bold'
   }
 })

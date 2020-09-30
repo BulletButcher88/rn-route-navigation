@@ -29,7 +29,9 @@ const CategoriesScreen = props => {
         <View style={styles.displayBox}>
           <Image
             source={{ uri: artDetail.item.imageUrl }}
-            style={styles.articleImageStyles}
+            style={{
+              ...styles.articleImageStyles
+            }}
           />
           <Text style={styles.articleHeader}>{artDetail.item.heading}</Text>
           <View style={styles.articleContentContainer}>
@@ -89,14 +91,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: 10,
     borderTopEndRadius: 50
-
   },
   articleHeader: {
     color: 'white',
     fontSize: 22,
     marginLeft: 20,
     position: 'absolute',
-    top: 10
+    top: 20
   },
   articleBoxContainer: {
     marginVertical: 10,
