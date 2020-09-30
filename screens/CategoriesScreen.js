@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem'
 
 const CategoriesScreen = props => {
 
-  const renderList = itemData => {
+  const renderCategories = itemData => {
     return (
       <RenderGridItem
         title={itemData.item.title}
@@ -23,12 +23,18 @@ const CategoriesScreen = props => {
     )
   }
 
-  const articleRender = artDetail => {
+  const renderArticle = artDetail => {
     return (
-      <TouchableOpacity style={styles.displayBoxContainer}>
-        <View style={{ ...styles.displayBox, backgroundColor: '#AAAAAA' }}>
-          <Text>{artDetail.item.heading}</Text>
-          <Text>{artDetail.item.article}</Text>
+      <TouchableOpacity style={styles.articleBoxContainer} >
+        <View style={styles.displayBox}>
+          <Image
+            source={{ uri: artDetail.item.imageUrl }}
+            style={styles.articleImageStyles}
+          />
+          <Text style={styles.articleHeader}>{artDetail.item.heading}</Text>
+          <View style={styles.articleContentContainer}>
+            <Text style={styles.articleText}>{artDetail.item.article.substring(0, 180)}...... >></Text>
+          </View>
         </View>
       </TouchableOpacity>
     )
@@ -44,12 +50,13 @@ const CategoriesScreen = props => {
         keyExtractor={(item, index) => item.id}
         horizontal={true}
         data={CATEGORIES}
-        renderItem={renderList} />
+        renderItem={renderCategories} />
 
       <FlatList
+        horizontal={true}
         keyExtractor={(item, index) => item.id}
         data={ARTICLES}
-        renderItem={articleRender} />
+        renderItem={renderArticle} />
 
     </ScrollView>
   )
@@ -78,10 +85,37 @@ const styles = StyleSheet.create({
   displayBox: {
     flex: 1,
     padding: 15,
-    height: 200,
-    backgroundColor: "#fff",
     justifyContent: 'center',
-    paddingBottom: 15,
+    backgroundColor: 'black',
+    borderRadius: 10,
+    borderTopEndRadius: 50
+
+  },
+  articleHeader: {
+    color: 'white',
+    fontSize: 22,
+    marginLeft: 20,
+    position: 'absolute',
+    top: 10
+  },
+  articleBoxContainer: {
+    marginVertical: 10,
+    marginHorizontal: 5,
+  },
+  articleImageStyles: {
+    width: '100%',
+    height: 100,
+    opacity: 0.7,
+    borderTopEndRadius: 50
+  },
+  articleContentContainer: {
+    height: 120,
+    width: 300,
+    justifyContent: 'center'
+  },
+  articleText: {
+    color: 'white',
+    marginVertical: 10
   }
 })
 

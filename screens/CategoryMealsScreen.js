@@ -31,7 +31,6 @@ const getCategoryData = (navData) => {
 }
 
 
-
 const CategoryMealsScreen = props => {
   const selectedCategory = getCategoryData(props)
   const categoryPageInfo = getCategoryPageInfo(props)

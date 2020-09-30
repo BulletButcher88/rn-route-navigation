@@ -1,11 +1,11 @@
 class Article {
-  constructor(id, heading, article, date, author, image, location) {
+  constructor(id, heading, article, date, author, imageUrl, location) {
     this.id = id;
     this.heading = heading;
     this.article = article;
     this.date = date;
     this.author = author;
-    this.image = image;
+    this.imageUrl = imageUrl;
     this.location = location;
   }
 }
