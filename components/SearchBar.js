@@ -3,21 +3,23 @@ import { View, Text, TextInput, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SearchBar = props => {
-  const [textValue, setTextValue] = useState()
+  const [textValue, setTextValue] = useState('')
   const [searching, setSearching] = useState(false);
 
-
+  console.log(searching, textValue)
   const PlaceholderInputText = props => {
-    {
-      return (!searching ?
+
+    return (!props.searching ?
+      (
         <>
           <Icon name="search" style={styles.icon} />
           <Text style={styles.placeholderText}>
             {"    "}What are we doing ?
         </Text>
-        </> :
-        null)
-    }
+        </>
+      ) :
+      null)
+
   }
 
   return (
@@ -28,7 +30,7 @@ const SearchBar = props => {
           setTextValue(value)
           setSearching(value == '' ? false : true)
         }}>
-        <PlaceholderInputText />
+        <PlaceholderInputText searching={searching} />
       </TextInput>
     </View>
   )
