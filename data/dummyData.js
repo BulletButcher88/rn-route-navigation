@@ -84,7 +84,7 @@ export const ARTICLES = [
 
   new Article(
     'art2',
-    'Best Live Music Venues',
+    'Live Music Matters',
     'Sometimes, it feels like live music is an endangered species in Melbourne. Every other month a treasured pub is under attack from developers or Johnny-come-lately residents with sensitive ears. In spite of these challenges, our scene is flourishing. Any night of the week, it\'s easy to find quality live music on somewhere.Whether you like folk, indie or heavy metal, these spots have you covered.',
     '27/10/2019',
     'Mark Butcher',

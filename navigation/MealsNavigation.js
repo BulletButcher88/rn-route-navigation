@@ -5,6 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
+import ArticleScreen from '../screens/ArticleScreen';
 import Colors from '../constants/Colors';
 
 const MealsNavigator = createStackNavigator({
@@ -17,6 +18,9 @@ const MealsNavigator = createStackNavigator({
   MealDetails: {
     screen: MealDetailScreen
   },
+  Article: {
+    screen: ArticleScreen
+  },
 },
   // expo default header 
   {
@@ -24,8 +28,7 @@ const MealsNavigator = createStackNavigator({
       headerStyle: {
         height: 70,
         backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor,
-        borderBottomColor: 'black',
-        borderBottomWidth: 1
+        borderBottomRightRadius: 50,
       },
       headerTintColor: Platform.OS === 'android' ? Colors.accentColor : 'black',
       headerTitleStyle: {
