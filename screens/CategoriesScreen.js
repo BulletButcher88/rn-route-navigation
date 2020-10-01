@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem'
+import SearchBar from '../components/SearchBar'
 
 const CategoriesScreen = props => {
 
@@ -44,6 +45,7 @@ const CategoriesScreen = props => {
 
   return (
     <ScrollView>
+      <SearchBar />
       <View style={styles.welcomeTextContainer}>
         <Text style={styles.welcomeText}>Supporting the local music community, makes you a legend</Text>
       </View>
@@ -59,7 +61,6 @@ const CategoriesScreen = props => {
         keyExtractor={(item, index) => item.id}
         data={ARTICLES}
         renderItem={renderArticle} />
-
     </ScrollView>
   )
 }
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'black',
     borderRadius: 10,
-    borderTopEndRadius: 50
+    borderTopRightRadius: 60
   },
   articleHeader: {
     color: 'white',
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
     opacity: 0.7,
-    borderTopEndRadius: 50
+    borderTopRightRadius: 50
   },
   articleContentContainer: {
     height: 120,

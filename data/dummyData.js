@@ -74,15 +74,6 @@ export const GIGS = [
 export const ARTICLES = [
   new Article(
     'art1',
-    'Best Live Music Venues',
-    'Sometimes, it feels like live music is an endangered species in Melbourne. Every other month a treasured pub is under attack from developers or Johnny-come-lately residents with sensitive ears. In spite of these challenges, our scene is flourishing. Any night of the week, it\'s easy to find quality live music on somewhere.Whether you like folk, indie or heavy metal, these spots have you covered.',
-    '27/10/2019',
-    'Mark Butcher',
-    'https://cdn.broadsheet.com.au/cache/91/c7/91c770eb815f19e6463c094217453bd1.jpg',
-    'Melbourne'
-  ),
-  new Article(
-    'art2',
     'COVID Artist',
     'It has been a tough year for musicians.Seemingly overnight, tours were postponed indefinitely or cancelled altogether.Theatre doors remain closed and locked, heavy chains wrapped around their handles.',
     '6/09/2020',
@@ -90,6 +81,17 @@ export const ARTICLES = [
     'https://www.abc.net.au/cm/rimage/12618950-16x9-xlarge.jpg?v=2',
     'Melbourne',
   ),
+
+  new Article(
+    'art2',
+    'Best Live Music Venues',
+    'Sometimes, it feels like live music is an endangered species in Melbourne. Every other month a treasured pub is under attack from developers or Johnny-come-lately residents with sensitive ears. In spite of these challenges, our scene is flourishing. Any night of the week, it\'s easy to find quality live music on somewhere.Whether you like folk, indie or heavy metal, these spots have you covered.',
+    '27/10/2019',
+    'Mark Butcher',
+    'https://cdn.broadsheet.com.au/cache/91/c7/91c770eb815f19e6463c094217453bd1.jpg',
+    'Melbourne'
+  ),
+
   new Article(
     'art3',
     'DARKFIELD',
