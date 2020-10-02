@@ -4,6 +4,7 @@ import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem'
 import ArticleGrid from '../components/ArticleGrid'
 import SearchBar from '../components/SearchBar'
+import Colors from '../constants/Colors';
 
 const CategoriesScreen = props => {
 
@@ -41,7 +42,7 @@ const CategoriesScreen = props => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: Colors.backgroundWhite, opacity: 1 }}>
       <SearchBar />
       <View style={styles.welcomeTextContainer}>
         <Text style={styles.welcomeText}>Supporting the local music community, makes you a legend</Text>
@@ -75,11 +76,12 @@ const CategoriesScreen = props => {
           over 200 Latin words</Text>
       </TouchableOpacity>
     </ScrollView>
+
   )
 }
 
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'GIG GUIDE',
+  headerTitle: 'YIDAKI',
 };
 
 const styles = StyleSheet.create({

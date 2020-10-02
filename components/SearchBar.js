@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Colors from '../constants/Colors'
 
 const SearchBar = props => {
   const [textValue, setTextValue] = useState('')
@@ -24,6 +25,8 @@ const SearchBar = props => {
 
   return (
     <View style={styles.inputContainer}>
+      <View style={{ backgroundColor: Colors.accentColor, height: 80, width: "100%", position: 'absolute', top: 0, right: 0 }} />
+      <View style={{ backgroundColor: Colors.backgroundWhite, height: 85, width: "100%", position: 'absolute', top: 0, right: 0, borderTopEndRadius: 40, borderTopStartRadius: 40 }} />
       <TextInput
         style={styles.inputStyle}
         onChangeText={(value) => {
@@ -38,18 +41,13 @@ const SearchBar = props => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    height: 48,
     width: "100%",
     alignItems: 'center',
-    marginTop: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.11,
-    shadowRadius: 6.32,
-    elevation: 13,
   },
   inputStyle: {
-    flex: 2,
+    flex: 1,
+    height: 48,
+    marginTop: 20,
     width: '80%',
     fontSize: 18,
     borderColor: '#bdbdbd',
@@ -58,6 +56,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: '#f6f6f6',
     fontFamily: 'roboto-bold',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.11,
+    shadowRadius: 6.32,
+    elevation: 13,
   },
   icon: {
     color: 'red',
