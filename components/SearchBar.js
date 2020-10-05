@@ -5,8 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const SearchBar = props => {
   const [textValue, setTextValue] = useState('')
   const [searching, setSearching] = useState(false);
-
-  console.log(searching, textValue)
   const PlaceholderInputText = props => {
 
     return (!props.searching ?

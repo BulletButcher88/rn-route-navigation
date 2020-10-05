@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
 import { GIGS } from '../data/dummyData'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import CustomButton from '../components/CustomButton'
 
 const GigDetailScreen = props => {
-  const catId = props.navigation.getParam('gigId')
+  const gigId = props.navigation.getParam('gigId')
+  const selectedGig = GIGS.filter((gig) => { return gig.id == gigId })
+
   return (
     <View style={styles.screen}>
-      <Text>{catId}</Text>
+      <ImageBackground
+        source={{ uri: selectedGig[0].imageUrl }}
+        style={{ width: "100%", height: 600, position: 'absolute', top: 0 }} />
+      <Text>{selectedGig[0].title}</Text>
       <Button title="Go back to TOP" onPress={() => {
         props.navigation.popToTop()
       }} />
@@ -27,7 +32,7 @@ GigDetailScreen.navigationOptions = navigationData => {
         <HeaderButtons
           HeaderButtonComponent={CustomButton}>
           <Item
-            title='Fav'
+            title='Save'
             iconName='ios-star'
             onPress={() => {
               console.log(selectedGig[0].title)
