@@ -25,10 +25,9 @@ const SearchBar = props => {
 
   return (
     <View style={styles.inputContainer}>
-      <View style={{ backgroundColor: Colors.accentColor, height: 80, width: "100%", position: 'absolute', top: 0, right: 0 }} />
-      <View style={{ backgroundColor: Colors.backgroundWhite, height: 85, width: "100%", position: 'absolute', top: 0, right: 0, borderTopEndRadius: 40, borderTopStartRadius: 40 }} />
       <TextInput
         style={styles.inputStyle}
+        onFocus={() => { setSearching(true) }}
         onChangeText={(value) => {
           setTextValue(value)
           setSearching(value == '' ? false : true)

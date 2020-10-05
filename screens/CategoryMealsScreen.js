@@ -42,7 +42,7 @@ const CategoryMealsScreen = props => {
         <GigItem {...itemData}
           onSelectGig={() => {
             props.navigation.navigate({
-              routeName: 'MealDetails',
+              routeName: 'GigDetails',
               params: {
                 gigId: itemData.item.id
               }

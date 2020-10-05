@@ -61,12 +61,12 @@ const CategoriesScreen = props => {
         renderItem={renderArticle} />
 
       <TouchableOpacity
-        style={{ backgroundColor: 'black', height: 340, width: "97%", borderTopRightRadius: 80, margin: 5, borderRadius: 10, padding: 15 }}>
-        <Text style={{ color: 'white', fontSize: 22, margin: 15 }}>ANNOUNCEMENT</Text>
+        style={{ backgroundColor: 'black', height: 320, width: "97%", borderTopRightRadius: 80, margin: 5, borderRadius: 10, padding: 15 }}>
+        <Text style={{ color: 'white', fontSize: 22, marginTop: 10 }}>ANNOUNCEMENT</Text>
         <ImageBackground
-          style={{ flex: 1, position: 'absolute', top: "20%", height: 250, width: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 80, opacity: 0.4, overflow: 'hidden' }}
+          style={{ flex: 1, position: 'absolute', top: "20%", height: 250, width: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 80, opacity: 0.2, overflow: 'hidden' }}
           source={{ uri: 'https://i.pinimg.com/736x/32/d2/a0/32d2a0aa9a28fb233cf7f83c6a6cca2d.jpg' }} />
-        <Text style={{ color: 'white', marginTop: 10, borderTopRightRadius: 20, fontSize: 14 }}>There are many variations of passages of Lorem Ipsum available,
+        <Text style={{ color: 'white', marginTop: 10, borderTopRightRadius: 20, fontSize: 14, margin: 15, marginTop: 20 }}>There are many variations of passages of Lorem Ipsum available,
         but the majority have suffered alteration in some form, by injected humour,
         or randomised words which don't look even slightly believable.
         If you are going to use a passage of Lorem Ipsum, you need to be sure there
