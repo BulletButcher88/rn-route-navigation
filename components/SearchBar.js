@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Colors from '../constants/Colors'
 
 const SearchBar = props => {
   const [textValue, setTextValue] = useState('')

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { GIGS } from '../data/dummyData'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import HeaderButton from '../components/HeaderButton'
+import CustomButton from '../components/CustomButton'
 
 const GigDetailScreen = props => {
   const catId = props.navigation.getParam('gigId')
@@ -25,12 +25,12 @@ GigDetailScreen.navigationOptions = navigationData => {
     headerRight: () => {
       return (
         <HeaderButtons
-          HeaderButtonComponent={HeaderButton}>
+          HeaderButtonComponent={CustomButton}>
           <Item
             title='Fav'
             iconName='ios-star'
             onPress={() => {
-              console.log("MARK AS FAV")
+              console.log(selectedGig[0].title)
             }} />
         </HeaderButtons>)
     }

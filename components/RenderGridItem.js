@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     width: 300,
     borderColor: 'black',
     shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
+    shadowOffset: { width: 0, height: 5 },
+    elevation: 4,
     padding: 15,
     justifyContent: 'flex-end',
     alignContent: 'space-around'

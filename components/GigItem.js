@@ -42,7 +42,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black',
-    marginVertical: 2
+    marginVertical: 10,
+    borderColor: 'purple',
+    shadowOpacity: 0.45,
+    shadowOffset: { width: 0, height: 5 },
+    elevation: 4,
   },
   titleStyle: {
     fontFamily: 'roboto-bold',
@@ -51,7 +55,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   venueDetailContainer: {
-    flex: 1,
     flexDirection: 'row',
     width: "50%",
     justifyContent: 'space-between'
@@ -65,16 +68,15 @@ const styles = StyleSheet.create({
     height: 170
   },
   artistContainer: {
-    flex: 1,
     width: '100%',
-    justifyContent: "center"
+    justifyContent: "center",
   },
   artistNameContainer: {
     flexDirection: 'row',
   },
   artistNameText: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     marginHorizontal: 2,
     padding: 2,
     color: 'white',
