@@ -59,10 +59,6 @@ const CategoryGigScreen = props => {
         keyExtractor={(item, index) => item.id}
         renderItem={renderItem}
       />
-
-      <Button title="Go Back" onPress={() => {
-        props.navigation.goBack()
-      }} />
     </View>
   )
 }

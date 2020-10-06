@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
 //the above might cause an error
 import CategoriesScreen from '../screens/CategoriesScreen';
@@ -12,6 +13,7 @@ import ArticleScreen from '../screens/ArticleScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import OrganiserScreen from '../screens/OrganiserScreen'
 
 import Colors from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons'
@@ -33,8 +35,9 @@ const MusicSceneNavigator = createStackNavigator({
   // expo default header 
   {
     defaultNavigationOptions: {
-      headerStyle: {
-        height: 70,
+      headerStyle:
+      {
+        height: 80,
         backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor,
       },
       headerTintColor: Platform.OS === 'android' ? Colors.accentColor : 'black',
@@ -47,7 +50,7 @@ const MusicSceneNavigator = createStackNavigator({
   }
 )
 
-const GigFavoriteNavigator = createBottomTabNavigator({
+const tabScreenConfig = {
   Gigs: {
     screen: MusicSceneNavigator, navigationOptions: {
       tabBarLabel: 'Search',
@@ -64,6 +67,14 @@ const GigFavoriteNavigator = createBottomTabNavigator({
       }
     }
   },
+  MyGigs: {
+    screen: OrganiserScreen, navigationOptions: {
+      tabBarLabel: 'My Gigs',
+      tabBarIcon: (tabInfo) => {
+        return <Ionicons name='ios-calendar' size={25} color={tabInfo.tintColor} />
+      }
+    }
+  },
   Chat: {
     screen: ChatScreen, navigationOptions: {
       tabBarLabel: 'Inbox',
@@ -77,13 +88,28 @@ const GigFavoriteNavigator = createBottomTabNavigator({
       tabBarLabel: 'Profile',
       tabBarIcon: (tabInfo) => {
         return <Ionicons name='ios-person' size={25} color={tabInfo.tintColor} />
-      }
+      },
+      tabBarColor: "red"
     }
   },
-}, {
-  tabBarOptions: {
-    activeTintColor: Colors.strongTextGrey
-  }
-})
+};
+
+
+const GigFavoriteNavigator = Platform.OS == "android"
+  ? createMaterialBottomTabNavigator(tabScreenConfig, {
+    activeColor: Colors.strongTextGrey,
+    shifting: true,
+    barStyle: {
+      backgroundColor: Colors.primaryColor
+    }
+    //remove shifting and barStyle if it looks bad on android
+  })
+  : createBottomTabNavigator(
+    tabScreenConfig,
+    {
+      tabBarOptions: {
+        activeTintColor: Colors.strongTextGrey
+      }
+    })
 
 export default createAppContainer(GigFavoriteNavigator);
