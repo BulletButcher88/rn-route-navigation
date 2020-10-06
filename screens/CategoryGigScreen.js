@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
+import { View, Button, StyleSheet, FlatList } from 'react-native';
 import GigItem from '../components/GigItem';
 import { GIGS, CATEGORIES } from '../data/dummyData';
 
@@ -31,7 +31,7 @@ const getCategoryData = (navData) => {
 }
 
 
-const CategoryMealsScreen = props => {
+const CategoryGigScreen = props => {
   const selectedCategory = getCategoryData(props)
   const categoryPageInfo = getCategoryPageInfo(props)
 
@@ -68,7 +68,7 @@ const CategoryMealsScreen = props => {
 }
 
 
-CategoryMealsScreen.navigationOptions = navigationData => {
+CategoryGigScreen.navigationOptions = navigationData => {
   const navData = getCategoryPageInfo(navigationData)
   return {
     headerTitle: navData.title,
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CategoryMealsScreen
+export default CategoryGigScreen

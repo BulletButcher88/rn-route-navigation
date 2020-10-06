@@ -25,6 +25,7 @@ const SearchBar = props => {
       <TextInput
         style={styles.inputStyle}
         onFocus={() => { setSearching(true) }}
+        onBlur={() => { setSearching(false) }}
         onChangeText={(value) => {
           setTextValue(value)
           setSearching(value == '' ? false : true)

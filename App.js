@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 import { enableScreens } from 'react-native-screens'
-import MealsNavigator from './navigation/MealsNavigation';
+import MusicSceneNavigator from './navigation/MusicSceneNavigator';
 
 enableScreens()
 
@@ -31,7 +31,7 @@ export default function App() {
   }
 
   return (
-    <MealsNavigator />
+    <MusicSceneNavigator />
   );
 }
 

@@ -42,11 +42,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black',
-    marginVertical: 10,
+    marginVertical: 8,
     borderColor: 'purple',
     shadowOpacity: 0.45,
     shadowOffset: { width: 0, height: 5 },
     elevation: 4,
+    borderRadius: 10,
+    borderTopRightRadius: 60,
+    borderBottomLeftRadius: 60
   },
   titleStyle: {
     fontFamily: 'roboto-bold',
@@ -65,7 +68,9 @@ const styles = StyleSheet.create({
   },
   posterUrl: {
     width: 370,
-    height: 170
+    height: 170,
+    borderBottomLeftRadius: 60
+
   },
   artistContainer: {
     width: '100%',
