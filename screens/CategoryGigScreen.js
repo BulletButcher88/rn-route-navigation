@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Button, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import GigItem from '../components/GigItem';
 import { GIGS, CATEGORIES } from '../data/dummyData';
 
@@ -38,7 +39,7 @@ const CategoryGigScreen = props => {
 
   const renderItem = (itemData) => {
     return (
-      <View>
+      <View style={styles.pageContainer}>
         <GigItem {...itemData}
           onSelectGig={() => {
             props.navigation.navigate({
@@ -53,13 +54,17 @@ const CategoryGigScreen = props => {
   }
 
   return (
-    <View style={{ ...styles.screen, backgroundColor: categoryPageInfo.color }}>
+    <LinearGradient
+      colors={[categoryPageInfo.color, 'transparent']}
+      style={styles.linearGradient}
+      start={{ x: 0.7, y: 0 }}
+    >
       <FlatList
         data={selectedCategory}
         keyExtractor={(item, index) => item.id}
         renderItem={renderItem}
       />
-    </View>
+    </LinearGradient>
   )
 }
 
@@ -68,6 +73,9 @@ CategoryGigScreen.navigationOptions = navigationData => {
   const navData = getCategoryPageInfo(navigationData)
   return {
     headerTitle: navData.title,
+    headerStyle: {
+      backgroundColor: navData.color
+    }
   }
 }
 
@@ -82,6 +90,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: 'ambit-bold',
     padding: 20
+  },
+  pageContainer: {
+    margin: 10
   }
 })
 

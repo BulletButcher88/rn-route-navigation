@@ -21,7 +21,7 @@ const GigItem = props => {
 
   return (
     <TouchableOpacity style={styles.cardContainer} onPress={props.onSelectGig}>
-      <Text style={styles.titleStyle}>{title}</Text>
+      <Text style={styles.titleStyle}>{title.toUpperCase()}</Text>
       <View style={styles.venueDetailContainer}>
         <Text style={styles.venueText}>{venue}</Text>
         <Text style={styles.venueText}>$ {doorPrice}</Text>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     color: 'grey',
   },
   posterUrl: {
-    width: 370,
+    width: "100%",
     height: 170,
     borderBottomLeftRadius: 60
 

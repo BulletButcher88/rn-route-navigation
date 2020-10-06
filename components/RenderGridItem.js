@@ -45,10 +45,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     height: 280,
     width: 300,
-    borderColor: 'black',
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: 5 },
-    elevation: 4,
     padding: 15,
     justifyContent: 'flex-end',
     alignContent: 'space-around'
@@ -56,6 +52,10 @@ const styles = StyleSheet.create({
   touchableGrid: {
     flex: 1,
     borderRadius: 20,
+    borderColor: 'black',
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 5 },
+    elevation: 4,
   },
   textContainer: {
     marginLeft: 5,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     marginVertical: 5,
     marginHorizontal: 5,
-    color: Colors.fadedTextGrey
+    color: Colors.offBlackText
   },
   photoStyle: {
     flex: 1,
