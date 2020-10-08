@@ -4,8 +4,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
-//the above might cause an error
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryGigScreen from '../screens/CategoryGigScreen';
 import GigDetailScreen from '../screens/GigDetailScreen';
@@ -13,10 +13,27 @@ import ArticleScreen from '../screens/ArticleScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import OrganiserScreen from '../screens/OrganiserScreen'
+import OrganiserScreen from '../screens/OrganiserScreen';
+import FilterScreen from '../screens/FilterScreen';
 
 import Colors from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons'
+
+const defaultStackNavOptions = {
+  defaultNavigationOptions: {
+    headerStyle:
+    {
+      height: 80,
+      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor,
+    },
+    headerTintColor: Platform.OS === 'android' ? Colors.accentColor : 'black',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      fontSize: 18,
+      fontFamily: 'roboto-bold',
+    },
+  }
+}
 
 const MusicSceneNavigator = createStackNavigator({
   Categories: {
@@ -31,24 +48,18 @@ const MusicSceneNavigator = createStackNavigator({
   Article: {
     screen: ArticleScreen
   },
-},
+}, defaultStackNavOptions
   // expo default header 
-  {
-    defaultNavigationOptions: {
-      headerStyle:
-      {
-        height: 80,
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.accentColor,
-      },
-      headerTintColor: Platform.OS === 'android' ? Colors.accentColor : 'black',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        fontSize: 18,
-        fontFamily: 'roboto-bold',
-      },
-    }
-  }
 )
+
+const FavNavigator = createStackNavigator({
+  Favorites: FavoriteScreen,
+  GigDetails: GigDetailScreen
+}, defaultStackNavOptions)
+
+const FilterNavigator = createStackNavigator({
+  Filter: FilterScreen
+})
 
 const tabScreenConfig = {
   Gigs: {
@@ -60,7 +71,7 @@ const tabScreenConfig = {
     }
   },
   Favorites: {
-    screen: FavoriteScreen, navigationOptions: {
+    screen: FavNavigator, navigationOptions: {
       tabBarLabel: 'Saved',
       tabBarIcon: (tabInfo) => {
         return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor} />
@@ -112,4 +123,9 @@ const GigFavoriteNavigator = Platform.OS == "android"
       }
     })
 
-export default createAppContainer(GigFavoriteNavigator);
+const MainNavigator = createDrawerNavigator({
+  GigFavorites: GigFavoriteNavigator,
+  Filter: FilterNavigator
+})
+
+export default createAppContainer(MainNavigator);

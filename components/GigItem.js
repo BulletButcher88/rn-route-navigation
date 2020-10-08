@@ -8,13 +8,15 @@ const GigItem = props => {
   const artistList = (itemData, index) => {
     return (
       <View style={styles.artistNameContainer}>
-        {itemData ?
-          itemData.map((data, index) => <Text
+        {itemData ? itemData.map((data, index) =>
+          index < 3 ? <Text
             key={index}
             style={styles.artistNameText}
           >
             {data}
-          </Text>) : null}
+          </Text> : null
+        )
+          : null}
       </View>
     )
   }
@@ -49,7 +51,8 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderRadius: 10,
     borderTopRightRadius: 60,
-    borderBottomLeftRadius: 60
+    borderBottomLeftRadius: 60,
+    padding: 5
   },
   titleStyle: {
     fontFamily: 'roboto-bold',
@@ -68,24 +71,24 @@ const styles = StyleSheet.create({
   },
   posterUrl: {
     width: "100%",
-    height: 170,
+    height: 190,
     borderBottomLeftRadius: 60
 
   },
   artistContainer: {
     width: '100%',
-    justifyContent: "center",
   },
   artistNameContainer: {
     flexDirection: 'row',
   },
   artistNameText: {
     flex: 1,
-    justifyContent: 'center',
     marginHorizontal: 2,
+    fontSize: 18,
     padding: 2,
     color: 'white',
-    fontFamily: 'roboto-bold'
+    fontFamily: 'roboto-bold',
+    textAlign: 'center'
   }
 })
 

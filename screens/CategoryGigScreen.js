@@ -1,7 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import GigItem from '../components/GigItem';
+import GigListComponent from '../components/GigListComponent'
 import { GIGS, CATEGORIES } from '../data/dummyData';
 
 const getCategoryPageInfo = navData => {
@@ -31,40 +29,12 @@ const getCategoryData = (navData) => {
   }
 }
 
-
 const CategoryGigScreen = props => {
   const selectedCategory = getCategoryData(props)
   const categoryPageInfo = getCategoryPageInfo(props)
 
-
-  const renderItem = (itemData) => {
-    return (
-      <View style={styles.pageContainer}>
-        <GigItem {...itemData}
-          onSelectGig={() => {
-            props.navigation.navigate({
-              routeName: 'GigDetails',
-              params: {
-                gigId: itemData.item.id
-              }
-            });
-          }} />
-      </View>
-    )
-  }
-
   return (
-    <LinearGradient
-      colors={[categoryPageInfo.color, 'transparent']}
-      style={styles.linearGradient}
-      start={{ x: 0.7, y: 0 }}
-    >
-      <FlatList
-        data={selectedCategory}
-        keyExtractor={(item, index) => item.id}
-        renderItem={renderItem}
-      />
-    </LinearGradient>
+    <GigListComponent colors={categoryPageInfo.color} gigData={selectedCategory} {...props} />
   )
 }
 
@@ -78,22 +48,5 @@ CategoryGigScreen.navigationOptions = navigationData => {
     }
   }
 }
-
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: {
-    fontSize: 40,
-    fontFamily: 'ambit-bold',
-    padding: 20
-  },
-  pageContainer: {
-    margin: 10
-  }
-})
 
 export default CategoryGigScreen

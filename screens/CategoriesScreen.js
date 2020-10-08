@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView, Button, ImageBackground } from 'react-native';
 import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem';
 import ArticleGrid from '../components/ArticleGrid';
 import SearchBar from '../components/SearchBar';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
+import CustomButton from '../components/CustomButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 
@@ -52,7 +54,7 @@ const CategoriesScreen = props => {
       <ScrollView >
         <SearchBar />
         <View style={styles.welcomeTextContainer}>
-          <Text style={styles.welcomeText}>Supporting the local music community, makes you a legend</Text>
+          <Text style={styles.welcomeText}>Supporting local music is legendary</Text>
         </View>
 
         <FlatList
@@ -68,19 +70,15 @@ const CategoriesScreen = props => {
           renderItem={renderArticle} />
 
         <TouchableOpacity
-          style={{ backgroundColor: 'black', height: 320, width: "97%", borderTopRightRadius: 80, margin: 5, borderRadius: 10, padding: 15 }}>
+          style={{ backgroundColor: 'black', height: 240, width: "97%", borderTopRightRadius: 80, margin: 5, borderRadius: 10, padding: 15 }}>
           <Text style={{ color: 'white', fontSize: 22, marginTop: 10 }}>ANNOUNCEMENT</Text>
           <ImageBackground
-            style={{ flex: 1, position: 'absolute', top: "20%", height: 250, width: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 80, opacity: 0.2 }}
+            style={{ flex: 1, position: 'absolute', top: "20%", height: 200, width: '100%', justifyContent: 'center', alignItems: 'center', borderRadius: 80, opacity: 0.2, overflow: 'hidden' }}
             source={{ uri: 'https://i.pinimg.com/736x/32/d2/a0/32d2a0aa9a28fb233cf7f83c6a6cca2d.jpg' }} />
-          <Text style={{ color: 'white', marginTop: 10, borderTopRightRadius: 20, fontSize: 14, margin: 15, marginTop: 20 }}>There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered alteration in some form, by injected humour,
-          or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure there
-          isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
-          generators on the Internet tend to repeat predefined chunks as necessary,
-          making this the first true generator on the Internet. It uses a dictionary of
-          over 200 Latin words</Text>
+          <Text style={{ color: 'white', marginTop: 10, borderTopRightRadius: 20, fontSize: 14, margin: 15, marginTop: 20 }}>
+            Due to the pandemic shutdowns and restrictions around 75% for those employed in the creative and performing arts have lost their work. Please help us to keep the community of live musicians, venues and punters alive.
+          </Text>
+          <Button title="DONATE" />
         </TouchableOpacity>
       </ScrollView>
     </LinearGradient>
@@ -88,8 +86,17 @@ const CategoriesScreen = props => {
   )
 }
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: 'YIDAKI',
+CategoriesScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: 'YIDAKI',
+    headerLeft: () => {
+      return (<HeaderButtons HeaderButtonComponent={CustomButton}>
+        <Item title='Menu' iconName='ios-menu' onPress={() => {
+          navData.navigation.toggleDrawer()
+        }} />
+      </HeaderButtons>)
+    }
+  }
 };
 
 const styles = StyleSheet.create({
@@ -101,7 +108,8 @@ const styles = StyleSheet.create({
     color: '#A30232',
     fontFamily: 'roboto',
     flex: 1,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    lineHeight: 44,
   },
   linearGradient: {
     flex: 1,

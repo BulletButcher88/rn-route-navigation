@@ -1,13 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { GIGS } from '../data/dummyData';
+import GigListComponent from '../components/GigListComponent';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
+import CustomButton from '../components/CustomButton';
 
 const FavoriteScreen = props => {
+  const dummyData = GIGS.filter(gig => gig.id == '01' || gig.id == '02')
   return (
-    <View style={styles.screen}>
-      <Text>FavoriteScreen</Text>
-    </View>
+    <GigListComponent gigData={dummyData} {...props} />
   )
 }
+
+FavoriteScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: 'YIDAKI',
+    headerLeft: () => {
+      return (<HeaderButtons HeaderButtonComponent={CustomButton}>
+        <Item title='Menu' iconName='ios-menu' onPress={() => {
+          navData.navigation.toggleDrawer()
+        }} />
+      </HeaderButtons>)
+    }
+  }
+};
 
 const styles = StyleSheet.create({
   screen: {

@@ -18,7 +18,7 @@ export const CATEGORIES = [
 
 export const GIGS = [
   new Gig(
-    "gig01",
+    "01",
     ['c1', 'c5'],
     "MEGA TOTE FESTIVAL",
     30,
@@ -35,13 +35,13 @@ export const GIGS = [
     true
   ),
   new Gig(
-    "gig02",
+    "02",
     ['c1', 'c4'],
     "Ghost of Cape Man",
     30,
     "https://4.bp.blogspot.com/_lupM0lp1FvU/SrH2NNscngI/AAAAAAAAAuE/XORBwbl_FCA/s320/ghostman.jpg",
     "The human embodiment of the unexplainable realms between man and electro-tape...",
-    ["Melvins", "Helmet", "Slugmother"],
+    ["Melvins", "Helmet", "Slugmother", "Guided By Voices", "Slint", 'Helms Alee'],
     '18/11/2020',
     2.5,
     "The Old Bar",
