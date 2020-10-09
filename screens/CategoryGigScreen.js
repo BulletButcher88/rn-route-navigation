@@ -1,5 +1,6 @@
 import React from 'react';
 import GigListComponent from '../components/GigListComponent'
+import VenueMapScreen from '../screens/VenueMapScreen'
 import { GIGS, CATEGORIES } from '../data/dummyData';
 
 const getCategoryPageInfo = navData => {
@@ -23,6 +24,8 @@ const getCategoryData = (navData) => {
       return (
         displayGigs
       )
+    case 'c2':
+      return
     default: {
       return
     }

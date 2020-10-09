@@ -4,7 +4,7 @@ import Article from '../models/article'
 
 export const CATEGORIES = [
   new Category('c1', 'Gig Guide', '#f5428d', 'https://www.beat.com.au/wp-content/uploads/2019/05/amylthesniffers_thetote_090519_joshuabraybrook-8.jpg', 'Unique music in your local area, hosted by local venues'),
-  new Category('c2', 'Local Pubs', '#f54242', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqIJJYvZfMwSYUpSHFl-Sb19_s1gixE2a2Hw&usqp=CAU', 'Traveling alone? Let us introduce you to a local who is going to a gig nearby.'),
+  new Category('c2', 'Nearby', '#f54242', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqIJJYvZfMwSYUpSHFl-Sb19_s1gixE2a2Hw&usqp=CAU', 'Traveling alone? Let us introduce you to a local who is going to a gig nearby.'),
   new Category('c3', 'Local Host', '#f5a442',
     'https://www.hiddencitysecrets.com.au/wp-content/uploads/2018/06/The-Old-Bar-Dive-Bar-Johnston-St-Fitzroy-Bar-Bars-Cocktail-Top-Best-Good-Rock-Live-Music-Gigs-Gig-Beer-001-1.jpg',
     'Meet up with a local punter, make friends with the locals '),

@@ -15,6 +15,7 @@ import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import OrganiserScreen from '../screens/OrganiserScreen';
 import FilterScreen from '../screens/FilterScreen';
+import VenueMapScreen from '../screens/VenueMapScreen'
 
 import Colors from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons'
@@ -45,6 +46,9 @@ const MusicSceneNavigator = createStackNavigator({
   },
   GigDetails: {
     screen: GigDetailScreen
+  },
+  VenueMap: {
+    screen: VenueMapScreen
   },
   Article: {
     screen: ArticleScreen
