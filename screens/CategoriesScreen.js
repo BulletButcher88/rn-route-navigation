@@ -53,6 +53,7 @@ const CategoriesScreen = props => {
     >
       <ScrollView >
         <SearchBar />
+
         <View style={styles.welcomeTextContainer}>
           <Text style={styles.welcomeText}>Supporting local music is legendary</Text>
         </View>

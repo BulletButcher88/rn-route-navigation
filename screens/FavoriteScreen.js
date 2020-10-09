@@ -15,7 +15,7 @@ const FavoriteScreen = props => {
 
 FavoriteScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'YIDAKI',
+    headerTitle: 'Gigs For You',
     headerLeft: () => {
       return (<HeaderButtons HeaderButtonComponent={CustomButton}>
         <Item title='Menu' iconName='ios-menu' onPress={() => {

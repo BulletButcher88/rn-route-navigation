@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
+import DefaultBandText from '../components/DefaultBandText';
 
 const GigItem = props => {
   const { performingArtist, title, venue, imageUrl, doorPrice, location } = props.item
@@ -9,12 +10,11 @@ const GigItem = props => {
     return (
       <View style={styles.artistNameContainer}>
         {itemData ? itemData.map((data, index) =>
-          index < 3 ? <Text
+          index < 3 ? <DefaultBandText
             key={index}
-            style={styles.artistNameText}
           >
             {data}
-          </Text> : null
+          </DefaultBandText> : null
         )
           : null}
       </View>
@@ -80,15 +80,6 @@ const styles = StyleSheet.create({
   },
   artistNameContainer: {
     flexDirection: 'row',
-  },
-  artistNameText: {
-    flex: 1,
-    marginHorizontal: 2,
-    fontSize: 18,
-    padding: 2,
-    color: 'white',
-    fontFamily: 'roboto-bold',
-    textAlign: 'center'
   }
 })
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
@@ -32,6 +32,7 @@ const defaultStackNavOptions = {
       fontSize: 18,
       fontFamily: 'roboto-bold',
     },
+    headerBackStyle: 'roboto-bold'
   }
 }
 
@@ -58,8 +59,8 @@ const FavNavigator = createStackNavigator({
 }, defaultStackNavOptions)
 
 const FilterNavigator = createStackNavigator({
-  Filter: FilterScreen
-})
+  Filter: FilterScreen,
+}, defaultStackNavOptions)
 
 const tabScreenConfig = {
   Gigs: {
@@ -112,20 +113,63 @@ const GigFavoriteNavigator = Platform.OS == "android"
     shifting: true,
     barStyle: {
       backgroundColor: Colors.primaryColor
-    }
+    },
+    inactiveColor: Colors.fadedTextGrey
     //remove shifting and barStyle if it looks bad on android
   })
   : createBottomTabNavigator(
     tabScreenConfig,
     {
       tabBarOptions: {
-        activeTintColor: Colors.strongTextGrey
-      }
+        activeTintColor: Colors.redPicker,
+        inactiveTintColor: Colors.fadedTextGrey,
+      },
     })
 
 const MainNavigator = createDrawerNavigator({
-  GigFavorites: GigFavoriteNavigator,
-  Filter: FilterNavigator
+  GigFavorites: {
+    screen: GigFavoriteNavigator,
+    navigationOptions: {
+      drawerLabel: 'HOME'
+    },
+  },
+  Gigs: {
+    screen: FavNavigator,
+    navigationOptions: {
+      drawerLabel: "TICKETS"
+    }
+  },
+  Filter: {
+    screen: FilterNavigator,
+    navigationOptions: {
+      drawerLabel: "GROUPIE"
+    }
+  },
+  // Gigs: {
+  //   screen: CategoryGigScreen,
+  //   navigationOptions: {
+  //     drawerLabel: "GIGS NEARBY"
+  //   }
+  // },
+}, {
+  contentOptions: {
+    activeTintColor: Colors.accentColor,
+    activeBackgroundColor: Colors.lightTransparentGrey,
+    inactiveTintColor: 'black',
+    inactiveBackgroundColor: Colors.lightGrey,
+    inactiveTintColor: Colors.offBlackText,
+    itemStyle: { flex: 1, justifyContent: 'center' },
+    labelStyle: {
+      flex: 1,
+      marginTop: 22,
+      fontFamily: 'open-san-bold',
+      fontSize: 15,
+      height: 32,
+      marginLeft: 40,
+    },
+  },
+  drawerWidth: Dimensions.get('window').width - 180,
+  drawerBackgroundColor: 'rgba(52, 52, 52, 0.6)'
 })
 
 export default createAppContainer(MainNavigator);

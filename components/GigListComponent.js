@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import GigItem from '../components/GigItem';
+import LinearGradientComponent from '../components/LinearGradientComponent';
+import GigItem from '../components/GigItem'
 
 const GigListComponent = props => {
-
   const renderItem = (itemData) => {
     return (
       <View style={styles.pageContainer}>
@@ -22,17 +21,15 @@ const GigListComponent = props => {
   }
 
   return (
-    <LinearGradient
-      colors={[props.color, '#5851DB', 'transparent']}
-      style={styles.linearGradient}
-      start={{ x: 0.7, y: 0.4 }}
+    <LinearGradientComponent
+      colors={props.colors}
     >
       <FlatList
         data={props.gigData}
         keyExtractor={(item, index) => item.id}
         renderItem={renderItem}
       />
-    </LinearGradient>
+    </LinearGradientComponent>
   )
 }
 const styles = StyleSheet.create({

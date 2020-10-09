@@ -14,7 +14,7 @@ const FilterScreen = props => {
 
 FilterScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'YIDAKI',
+    headerTitle: 'Your Favorite Bands',
     headerLeft: () => {
       return (<HeaderButtons HeaderButtonComponent={CustomButton}>
         <Item title='Menu' iconName='ios-menu' onPress={() => {
