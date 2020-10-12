@@ -7,18 +7,17 @@ const LinearGradientComponent = props => {
   return (
     <LinearGradient
       colors={[props.colors, '#5851DB', 'transparent']}
-      style={styles.linearGradient}
+      style={{ ...props.style, ...styles.linearGradient }}
       start={{ x: 0.7, y: 0.4 }}
     >
-      {props.children}
-    </LinearGradient>
+      { props.children}
+    </LinearGradient >
   )
 }
 
 const styles = StyleSheet.create({
   linearGradient: {
-    width: '100%',
-    height: '100%'
+    flex: 1
   }
 })
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet, Image, Platform } from 'react-native'
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import LinearGradientComponent from '../components/LinearGradientComponent'
 import Colors from '../constants/Colors'
 
 const RenderGridItem = props => {
@@ -21,15 +22,13 @@ const RenderGridItem = props => {
 
   return (
     <View style={styles.girdItems}>
-      <TouchableCmp
-        style={{
-          ...styles.touchableGrid,
-          backgroundColor: props.color,
-        }}
-        onPress={props.onSelect}>
-        <ContainerImage {...props} />
-      </TouchableCmp >
-
+      <LinearGradientComponent colors={props.color} style={styles.touchableGrid}>
+        <TouchableCmp
+          style={{ flex: 1 }}
+          onPress={props.onSelect}>
+          <ContainerImage {...props} />
+        </TouchableCmp >
+      </LinearGradientComponent>
       <View style={styles.textContainer}>
         <Text style={styles.titleText} numberOfLines={2}>{props.title}</Text>
         <Text style={styles.descriptionText}>{props.description}</Text>
@@ -41,18 +40,16 @@ const RenderGridItem = props => {
 const styles = StyleSheet.create({
   girdItems: {
     flex: 1,
-    margin: 5,
-    marginHorizontal: 10,
-    height: 280,
-    width: 300,
-    padding: 15,
+    width: 340,
+    padding: 5,
     justifyContent: 'flex-end',
     alignContent: 'space-around'
   },
   touchableGrid: {
     flex: 1,
-    borderRadius: 20,
-    borderColor: 'black',
+    width: 315,
+    height: 200,
+    borderRadius: 30,
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 5 },
     elevation: 4,
@@ -75,7 +72,8 @@ const styles = StyleSheet.create({
   },
   photoStyle: {
     flex: 1,
-    borderRadius: 20,
+    height: '100%',
+    borderRadius: 30,
     margin: 10
   }
 })
