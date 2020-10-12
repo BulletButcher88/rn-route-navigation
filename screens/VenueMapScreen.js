@@ -4,12 +4,18 @@ import LinearGradientComponent from '../components/LinearGradientComponent'
 
 const VenueMapScreen = props => {
   return (
-    <LinearGradientComponent>
+    <LinearGradientComponent colors={props.colors} style={styles.linearGradientContainer}>
       <Text>MAP PLACE HERE</Text>
     </LinearGradientComponent>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  linearGradientContainer: {
+    flex: 1,
+    // height: '100%',
+    // width: '100%'
+  }
+})
 
 export default VenueMapScreen

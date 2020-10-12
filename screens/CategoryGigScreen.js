@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Text } from 'react-native';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
 import { GIGS, CATEGORIES } from '../data/dummyData';
@@ -17,28 +18,25 @@ const getCategoryData = (navData) => {
   const displayGigs = GIGS.filter((gig) => {
     return gig.categoryId.indexOf(catId) >= 0
   }
-
   )
-  switch (catId) {
-    case 'c1':
-      return (
-        displayGigs
-      )
-    case 'c2':
-      return
-    default: {
-      return
-    }
-  }
+  return (
+    displayGigs
+  )
 }
 
 const CategoryGigScreen = props => {
   const selectedCategory = getCategoryData(props)
   const categoryPageInfo = getCategoryPageInfo(props)
 
-  return (
-    <GigListComponent colors={categoryPageInfo.color} gigData={selectedCategory} {...props} />
-  )
+  if (categoryPageInfo.id == 'c1') {
+    return (
+      <GigListComponent colors={categoryPageInfo.color} gigData={selectedCategory} {...props} />
+    )
+  }
+  if (categoryPageInfo.id == 'c2') {
+
+    return <VenueMapScreen colors={categoryPageInfo.color} {...props} />
+  }
 }
 
 
