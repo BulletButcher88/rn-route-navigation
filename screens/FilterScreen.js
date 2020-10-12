@@ -59,7 +59,7 @@ const FilterScreen = props => {
 
 FilterScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'Filter Bands',
+    headerTitle: 'Filter',
     headerLeft: () => {
       return (<HeaderButtons HeaderButtonComponent={CustomButton}>
         <Item title='Menu' iconName='ios-menu' onPress={() => {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 5
+    marginVertical: 10
   },
   filterText: {
     fontSize: 18
