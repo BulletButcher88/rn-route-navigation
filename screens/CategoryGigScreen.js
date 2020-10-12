@@ -34,7 +34,6 @@ const CategoryGigScreen = props => {
     )
   }
   if (categoryPageInfo.id == 'c2') {
-
     return <VenueMapScreen colors={categoryPageInfo.color} {...props} />
   }
 }

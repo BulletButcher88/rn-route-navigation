@@ -7,5 +7,7 @@ export default {
   offBlackText: '#1f1f1f',
   lightGrey: '#e0e0e0',
   lightTransparentGrey: 'rgba(206, 206, 206, 0.5)',
-  redPicker: '#e32600'
+  redPicker: '#e32600',
+  lightRed: '#ff8a70',
+  lightGoGreen: '#9cf792'
 }
