@@ -4,7 +4,16 @@ import { AppLoading } from 'expo'
 import { enableScreens } from 'react-native-screens'
 import MusicSceneNavigator from './navigation/MusicSceneNavigator';
 
+import { createStore, combineReducers } from 'redux'
+import gigReducer from './store/reducers/gigs'
+
 enableScreens()
+
+const rootReducer = combineReducers({
+  gigs: gigReducer
+})
+
+const store = createStore(rootReducer)
 
 const fetchFonts = () => {
   return (

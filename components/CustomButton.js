@@ -10,7 +10,7 @@ const CustomButton = props => {
       {...props}
       IconComponent={Ionicons}
       iconSize={23}
-      color={Platform.OS === 'android' ? 'white' : Colors.strongTextGrey}
+      color={Platform.OS === 'android' ? 'white' : Colors.offBlackText}
     />
   )
 }

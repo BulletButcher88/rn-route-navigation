@@ -146,7 +146,7 @@ const MainNavigator = createDrawerNavigator({
   Filter: {
     screen: FilterNavigator,
     navigationOptions: {
-      drawerLabel: "GROUPIE"
+      drawerLabel: "FILTER SEARCH"
     }
   },
   // Gigs: {

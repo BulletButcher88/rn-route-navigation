@@ -3,6 +3,8 @@ import React from 'react';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
 import { GIGS, CATEGORIES } from '../data/dummyData';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import CustomButton from '../components/CustomButton';
 
 const getCategoryPageInfo = navData => {
   const catId = navData.navigation.getParam('categoryId')
@@ -42,11 +44,19 @@ const CategoryGigScreen = props => {
 CategoryGigScreen.navigationOptions = navigationData => {
   const navData = getCategoryPageInfo(navigationData)
   return {
-    headerTitle: navData.title,
     headerStyle: {
       backgroundColor: navData.color
+    },
+    headerLeft: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomButton}>
+          <Item title='Menu' iconName='ios-settings' onPress={() => {
+            navigationData.navigation.toggleDrawer()
+          }} />
+        </HeaderButtons>)
     }
   }
 }
+
 
 export default CategoryGigScreen

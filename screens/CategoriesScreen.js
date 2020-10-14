@@ -4,9 +4,7 @@ import { CATEGORIES, ARTICLES } from '../data/dummyData';
 import RenderGridItem from '../components/RenderGridItem';
 import ArticleGrid from '../components/ArticleGrid';
 import SearchBar from '../components/SearchBar';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import CustomButton from '../components/CustomButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 
@@ -87,18 +85,6 @@ const CategoriesScreen = props => {
   )
 }
 
-CategoriesScreen.navigationOptions = (navData) => {
-  return {
-    headerTitle: 'YIDAKI',
-    headerLeft: () => {
-      return (<HeaderButtons HeaderButtonComponent={CustomButton}>
-        <Item title='Menu' iconName='ios-menu' onPress={() => {
-          navData.navigation.toggleDrawer()
-        }} />
-      </HeaderButtons>)
-    }
-  }
-};
 
 const styles = StyleSheet.create({
   welcomeTextContainer: {
