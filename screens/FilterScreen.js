@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -6,10 +6,28 @@ import CustomButton from '../components/CustomButton';
 import Colors from '../constants/Colors'
 
 const FilterScreen = props => {
+  const { navigation } = props;
+
   const [isLocal, setIsLocal] = useState(false)
   const [isAllAges, setIsAllAges] = useState(false)
   const [isFree, setIsFree] = useState(false)
   const [justFestivals, setJustFestivals] = useState(false)
+
+  const saveFilters = useCallback(() => {
+    const applyFilters = {
+      local: isLocal,
+      allAges: isAllAges,
+      free: isFree,
+      festival: justFestivals
+    }
+    console.log(applyFilters)
+  }, [isLocal, isAllAges, isFree, justFestivals])
+
+  useEffect(() => {
+    navigation.setParams({
+      save: saveFilters
+    })
+  }, [saveFilters])
 
   return (
     <View style={styles.screen}>
@@ -61,11 +79,19 @@ FilterScreen.navigationOptions = (navData) => {
   return {
     headerTitle: 'Filter',
     headerLeft: () => {
-      return (<HeaderButtons HeaderButtonComponent={CustomButton}>
-        <Item title='Menu' iconName='ios-menu' onPress={() => {
-          navData.navigation.toggleDrawer()
-        }} />
-      </HeaderButtons>)
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomButton}>
+          <Item title='Menu' iconName='ios-menu' onPress={() => {
+            navData.navigation.toggleDrawer()
+          }} />
+        </HeaderButtons>)
+    },
+    headerRight: () => {
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomButton}>
+          <Item title='Save' onPress={navData.navigation.getParam('save')} />
+        </HeaderButtons>
+      )
     }
   }
 };

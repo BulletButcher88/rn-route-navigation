@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+// import { View, Text } from 'react-native';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
 import { GIGS, CATEGORIES } from '../data/dummyData';
