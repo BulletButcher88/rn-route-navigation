@@ -5,7 +5,6 @@ import DefaultBandText from '../components/DefaultBandText';
 const GigItem = props => {
   const { performingArtist, title, venue, imageUrl, doorPrice, location } = props.item
 
-
   const artistList = (itemData, index) => {
     return (
       <View style={styles.artistNameContainer}>

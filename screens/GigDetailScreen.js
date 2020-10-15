@@ -8,6 +8,7 @@ import CustomButton from '../components/CustomButton'
 const GigDetailScreen = props => {
   const gigList = useSelector(state => state.gigs.gigs)
   const gigId = props.navigation.getParam('gigId')
+  const currentFavoriteGig = useSelector(state => state.gigs.favoriteGigs.some(gig => gig.id === gigId))
 
   const selectedGig = gigList.find((gig) => { return gig.id == gigId })
 
@@ -22,6 +23,12 @@ const GigDetailScreen = props => {
       toggleFav: toggleFavoriteHandler
     })
   }, [toggleFavoriteHandler])
+
+  useEffect(() => {
+    props.navigation.setParams({
+      isFav: currentFavoriteGig
+    })
+  }, [currentFavoriteGig])
 
   return (
     <View style={styles.screen}>
@@ -39,6 +46,7 @@ const GigDetailScreen = props => {
 GigDetailScreen.navigationOptions = navigationData => {
   const selectedTitle = navigationData.navigation.getParam('selectedGigTitle')
   const toggleFavoriteFunction = navigationData.navigation.getParam('toggleFav')
+  const isCurrentFavorite = navigationData.navigation.getParam('isFav')
 
   return {
     headerTitle: selectedTitle,
@@ -48,7 +56,7 @@ GigDetailScreen.navigationOptions = navigationData => {
           HeaderButtonComponent={CustomButton}>
           <Item
             title='Save'
-            iconName='ios-star'
+            iconName={isCurrentFavorite ? 'ios-star' : 'ios-star-outline'}
             onPress={toggleFavoriteFunction} />
         </HeaderButtons>)
     }

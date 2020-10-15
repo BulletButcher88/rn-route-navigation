@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StyleSheet } from 'react-native';
 import GigListComponent from '../components/GigListComponent';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -18,21 +17,15 @@ FavoriteScreen.navigationOptions = (navData) => {
   return {
     headerTitle: 'Gigs For You',
     headerLeft: () => {
-      return (<HeaderButtons HeaderButtonComponent={CustomButton}>
-        <Item title='Menu' iconName='ios-menu' onPress={() => {
-          navData.navigation.toggleDrawer()
-        }} />
-      </HeaderButtons>)
+      return (
+        <HeaderButtons HeaderButtonComponent={CustomButton}>
+          <Item title='Menu' iconName='ios-settings' onPress={() => {
+            navData.navigation.toggleDrawer()
+          }} />
+        </HeaderButtons>)
     }
   }
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export default FavoriteScreen
