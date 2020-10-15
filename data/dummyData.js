@@ -29,7 +29,7 @@ export const GIGS = [
     6.5,
     "The Tote Hotel",
     '230',
-    [-37.7994, 144.9872],
+    true,
     false,
     false,
     true
@@ -46,9 +46,9 @@ export const GIGS = [
     2.5,
     "The Old Bar",
     '175',
-    [-37.798333, 144.977111],
+    true,
     false,
-    false,
+    true,
     false
   ),
   new Gig(
@@ -63,8 +63,8 @@ export const GIGS = [
     2.5,
     "NO BAR",
     '175',
-    [-37.798333, 144.977111],
     false,
+    true,
     false,
     false
   ),

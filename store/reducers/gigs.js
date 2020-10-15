@@ -19,7 +19,9 @@ const gigReducer = (state = initialState, action) => {
         const addGig = state.gigs.find(gig => gig.id === action.gigId)
         return { ...state, favoriteGigs: state.favoriteGigs.concat(addGig) }
       }
-
+    // case SET_FILTERS:
+    //   const appliedFilter = action.filters
+    //   const filteredGigs = state.gigs.filter()
     default:
       return state;
   }
