@@ -12,7 +12,8 @@ const GigListComponent = props => {
             props.navigation.navigate({
               routeName: 'GigDetails',
               params: {
-                gigId: itemData.item.id
+                gigId: itemData.item.id,
+                selectedGigTitle: itemData.item.title
               }
             });
           }} />

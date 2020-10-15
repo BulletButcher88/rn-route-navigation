@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleFavorite } from '../store/actions/gigs'
 import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
-import { GIGS } from '../data/dummyData'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import CustomButton from '../components/CustomButton'
 
 const GigDetailScreen = props => {
+  const gigList = useSelector(state => state.gigs.gigs)
   const gigId = props.navigation.getParam('gigId')
-  const selectedGig = GIGS.filter((gig) => { return gig.id == gigId })
+
+  const selectedGig = gigList.find((gig) => { return gig.id == gigId })
+
+  const dispatch = useDispatch()
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFavorite(gigId))
+  }, [dispatch, gigId])
+
+  useEffect(() => {
+    props.navigation.setParams({
+      toggleFav: toggleFavoriteHandler
+    })
+  }, [toggleFavoriteHandler])
 
   return (
     <View style={styles.screen}>
       <ImageBackground
-        source={{ uri: selectedGig[0].imageUrl }}
+        source={{ uri: selectedGig.imageUrl }}
         style={{ width: "100%", height: 600, position: 'absolute', top: 0 }} />
-      <Text>{selectedGig[0].title}</Text>
+      <Text>{selectedGig.title}</Text>
       <Button title="Go back to TOP" onPress={() => {
         props.navigation.popToTop()
       }} />
@@ -22,11 +37,11 @@ const GigDetailScreen = props => {
 }
 
 GigDetailScreen.navigationOptions = navigationData => {
-  const gigId = navigationData.navigation.getParam('gigId')
-  const selectedGig = GIGS.filter((gig) => { return gig.id == gigId }
-  )
+  const selectedTitle = navigationData.navigation.getParam('selectedGigTitle')
+  const toggleFavoriteFunction = navigationData.navigation.getParam('toggleFav')
+
   return {
-    headerTitle: selectedGig[0].title,
+    headerTitle: selectedTitle,
     headerRight: () => {
       return (
         <HeaderButtons
@@ -34,9 +49,7 @@ GigDetailScreen.navigationOptions = navigationData => {
           <Item
             title='Save'
             iconName='ios-star'
-            onPress={() => {
-              console.log(selectedGig[0].title)
-            }} />
+            onPress={toggleFavoriteFunction} />
         </HeaderButtons>)
     }
   }

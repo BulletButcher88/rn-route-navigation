@@ -1,15 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { GIGS } from '../data/dummyData';
 import GigListComponent from '../components/GigListComponent';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import CustomButton from '../components/CustomButton';
 
 const FavoriteScreen = props => {
-  const dummyData = GIGS.filter(gig => gig.id == '01' || gig.id == '02')
+  const filteredSearch = useSelector(state => state.gigs.favoriteGigs)
+
   return (
-    <GigListComponent gigData={dummyData} {...props} />
+    <GigListComponent gigData={filteredSearch} {...props} />
   )
 }
 

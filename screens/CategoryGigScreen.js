@@ -1,13 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 // import { View, Text } from 'react-native';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
-import { GIGS, CATEGORIES } from '../data/dummyData';
+
+import { CATEGORIES } from '../data/dummyData';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomButton from '../components/CustomButton';
 
 const getCategoryPageInfo = navData => {
   const catId = navData.navigation.getParam('categoryId')
+
   const categoryPath = CATEGORIES.find((cat) => cat.id === catId)
   return categoryPath
 }
@@ -17,7 +20,8 @@ const getCategoryData = (navData) => {
     return
   }
   const catId = navData.navigation.getParam('categoryId')
-  const displayGigs = GIGS.filter((gig) => {
+  const availableGigs = useSelector(state => state.gigs.filterGigs)
+  const displayGigs = availableGigs.filter((gig) => {
     return gig.categoryId.indexOf(catId) >= 0
   }
   )

@@ -3,6 +3,7 @@ import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 import { enableScreens } from 'react-native-screens'
 import MusicSceneNavigator from './navigation/MusicSceneNavigator';
+import { Provider } from 'react-redux'
 
 import { createStore, combineReducers } from 'redux'
 import gigReducer from './store/reducers/gigs'
@@ -40,7 +41,9 @@ export default function App() {
   }
 
   return (
-    <MusicSceneNavigator />
+    <Provider store={store}>
+      <MusicSceneNavigator />
+    </Provider>
   );
 }
 
