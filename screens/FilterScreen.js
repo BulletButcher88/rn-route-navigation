@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
+import { useDispatch } from 'react-redux'
+import { setFilters } from '../store/actions/gigs'
+
 import CustomButton from '../components/CustomButton';
 import Colors from '../constants/Colors'
 
@@ -13,15 +16,17 @@ const FilterScreen = props => {
   const [isFree, setIsFree] = useState(false)
   const [justFestivals, setJustFestivals] = useState(false)
 
+  const dispatch = useDispatch()
+
   const saveFilters = useCallback(() => {
     const applyFilters = {
-      local: isLocal,
-      allAges: isAllAges,
-      free: isFree,
-      festival: justFestivals
+      isLocal: isLocal,
+      isAllAges: isAllAges,
+      isFree: isFree,
+      isFestival: justFestivals
     }
-    console.log(applyFilters)
-  }, [isLocal, isAllAges, isFree, justFestivals])
+    dispatch(setFilters(applyFilters))
+  }, [isLocal, isAllAges, isFree, justFestivals, dispatch])
 
   useEffect(() => {
     navigation.setParams({

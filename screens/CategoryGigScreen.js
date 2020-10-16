@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-// import { View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
 
@@ -35,6 +35,14 @@ const CategoryGigScreen = props => {
   const categoryPageInfo = getCategoryPageInfo(props)
 
   if (categoryPageInfo.id == 'c1') {
+
+    if (selectedCategory.length === 0) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>No gigs found, try changing the filters </Text>
+        </View>
+      )
+    }
     return (
       <GigListComponent colors={categoryPageInfo.color} gigData={selectedCategory} {...props} />
     )
