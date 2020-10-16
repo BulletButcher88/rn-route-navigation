@@ -2,7 +2,6 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native'
 
 const ArticleGrid = props => {
-  console.log(props.onSelect)
   return (
     <TouchableOpacity onPress={props.onSelect} style={styles.articleBoxContainer} >
       <View style={styles.displayBox}>

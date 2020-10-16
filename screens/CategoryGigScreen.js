@@ -7,6 +7,7 @@ import VenueMapScreen from '../screens/VenueMapScreen'
 import { CATEGORIES } from '../data/dummyData';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomButton from '../components/CustomButton';
+import LinearGradientComponent from '../components/LinearGradientComponent'
 
 const getCategoryPageInfo = navData => {
   const catId = navData.navigation.getParam('categoryId')
@@ -33,14 +34,15 @@ const getCategoryData = (navData) => {
 const CategoryGigScreen = props => {
   const selectedCategory = getCategoryData(props)
   const categoryPageInfo = getCategoryPageInfo(props)
-
   if (categoryPageInfo.id == 'c1') {
 
     if (selectedCategory.length === 0) {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>No gigs found, try changing the filters </Text>
-        </View>
+        <LinearGradientComponent
+          colors={categoryPageInfo.color}
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 18, color: 'white' }}>No gigs found, try changing the filters</Text>
+        </LinearGradientComponent>
       )
     }
     return (
