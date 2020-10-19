@@ -4,14 +4,14 @@ City of Melbourne is home to a large number of these venues and this dataset pro
 
 The aim is to make a basic web app for my friends bar, which hosts local bands on almost every night.  
 
-!(image)[https://imgur.com/mijULd8.mp4]
+!(image)[https://imgur.com/mijULd8.gif]
 
 
-[Imgur](https://imgur.com/mijULd8.mp4)
+[Imgur](https://imgur.com/mijULd8.gif)
 
-<img src="https://imgur.com/mijULd8.mp4"/>
+<img src="https://imgur.com/mijULd8.gif"/>
 
 [img]https://i.imgur.com/mijULd8.mp4[/img]
 
-https://imgur.com/mijULd8
+https://imgur.com/mijULd8.mp4
 
