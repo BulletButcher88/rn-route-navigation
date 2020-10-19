@@ -1,9 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '../store/actions/gigs'
-import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, ScrollView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import CustomButton from '../components/CustomButton'
+import CustomButton from '../components/CustomButton';
+import DefaultBandText from '../components/DefaultBandText'
 
 const GigDetailScreen = props => {
   const gigList = useSelector(state => state.gigs.gigs)
@@ -31,15 +32,22 @@ const GigDetailScreen = props => {
   }, [currentFavoriteGig])
 
   return (
-    <View style={styles.screen}>
-      <ImageBackground
+    <ScrollView contentContainerStyle={styles.screen}>
+      <Image
         source={{ uri: selectedGig.imageUrl }}
-        style={{ width: "100%", height: 600, position: 'absolute', top: 0 }} />
-      <Text>{selectedGig.title}</Text>
-      <Button title="Go back to TOP" onPress={() => {
-        props.navigation.popToTop()
-      }} />
-    </View>
+        style={styles.gigImage} />
+      <View style={styles.titleContainer}>
+        <DefaultBandText style={styles.headerText}>{selectedGig.title}</DefaultBandText>
+      </View>
+      <View style={styles.venueBookingDetails}>
+        <DefaultBandText>{selectedGig.venue}</DefaultBandText>
+        <DefaultBandText> $ {selectedGig.doorPrice}</DefaultBandText>
+        <DefaultBandText>{selectedGig.date}</DefaultBandText>
+      </View>
+      <View style={styles.descriptionText}>
+        <DefaultBandText >{selectedGig.description}</DefaultBandText>
+      </View>
+    </ScrollView >
   )
 }
 
@@ -66,8 +74,32 @@ GigDetailScreen.navigationOptions = navigationData => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: 'black',
+    justifyContent: 'flex-start'
+  },
+  gigImage: {
+    alignItems: 'center',
+    margin: 15,
+    width: "90%",
+    height: "30%",
+  },
+  titleContainer: {
+    alignItems: 'flex-end',
+    height: 60
+
+  },
+  headerText: {
+    fontSize: 23,
+    paddingRight: 20,
+  },
+  venueBookingDetails: {
+    height: 90,
+    padding: 0,
+    margin: 0
+  },
+  descriptionText: {
+    width: 320,
+    height: "100%"
   }
 })
 
