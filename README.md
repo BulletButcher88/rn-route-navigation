@@ -13,5 +13,6 @@ The aim is to make a basic web app for my friends bar, which hosts local bands o
 
 [img]https://i.imgur.com/mijULd8.mp4[/img]
 
-https://imgur.com/mijULd8.mp4
+https://imgur.com/mijULd8.gif
 
+![Alt Text](https://imgur.com/mijULd8.gif)
