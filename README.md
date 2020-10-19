@@ -9,10 +9,10 @@ The aim is to make a basic web app for my friends bar, which hosts local bands o
 
 [Imgur](https://imgur.com/mijULd8.jpg)
 
-<img src="https://imgur.com/mijULd8.jpg"/>
+<img src="https://github.com/BulletButcher88/rn-route-navigation/blob/master/assets/event-finder.mp4"/>
 
-[img]https://i.imgur.com/mijULd8.mp4[/img]
+[img]https://github.com/BulletButcher88/rn-route-navigation/blob/master/assets/event-finder.mp4]
 
 https://imgur.com/mijULd8.gif
 
-![Alt Text](https://imgur.com/mijULd8.gif)
+![Alt Text](https://github.com/BulletButcher88/rn-route-navigation/blob/master/assets/event-finder.mp4)
