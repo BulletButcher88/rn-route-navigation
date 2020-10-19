@@ -7,7 +7,9 @@ import Colors from '../constants/Colors'
 const LinearGradientComponent = props => {
   return (
     <LinearGradient
-      colors={[props.colors ? props.colors : Colors.accentColor, Colors.neonPurple, 'transparent']}
+      colors={[props.colors ?
+        props.colors :
+        Colors.accentColor, Colors.neonPurple, 'transparent']}
       style={{ ...props.style, ...styles.linearGradient }}
       start={{ x: 0.7, y: 0.4 }}
     >

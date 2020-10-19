@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '../store/actions/gigs'
-import { View, Text, Button, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, ScrollView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import CustomButton from '../components/CustomButton';
 import DefaultBandText from '../components/DefaultBandText'
@@ -94,12 +94,13 @@ const styles = StyleSheet.create({
   },
   venueBookingDetails: {
     height: 90,
-    padding: 0,
+    padding: 15,
     margin: 0
   },
   descriptionText: {
     width: 320,
-    height: "100%"
+    height: "100%",
+    padding: 5
   }
 })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import GigListComponent from '../components/GigListComponent'
 import VenueMapScreen from '../screens/VenueMapScreen'
 
@@ -39,7 +39,7 @@ const CategoryGigScreen = props => {
     if (selectedCategory.length === 0) {
       return (
         <LinearGradientComponent
-          colors={categoryPageInfo.color}
+          colors={categoryPageInfo.color, 'transparent'}
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ fontSize: 18, color: 'white' }}>No gigs found, try changing the filters</Text>
         </LinearGradientComponent>

@@ -49,9 +49,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 5 },
     elevation: 4,
     borderRadius: 10,
-    borderTopRightRadius: 60,
-    borderBottomLeftRadius: 60,
-    padding: 5
+    padding: 5,
+    margin: 5
   },
   titleStyle: {
     fontFamily: 'roboto-bold',
@@ -69,10 +68,11 @@ const styles = StyleSheet.create({
     color: 'grey',
   },
   posterUrl: {
-    width: "100%",
+    width: "98%",
     height: 190,
-    borderBottomLeftRadius: 60
-
+    marginBottom: 5,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10
   },
   artistContainer: {
     width: '100%',
