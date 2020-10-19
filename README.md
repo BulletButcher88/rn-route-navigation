@@ -7,6 +7,6 @@ The aim is to make a basic web app for my friends bar, which hosts local bands o
 
 <video width="320" height="240" controls="controls">
   <source 
-  src="assets/event-finder.mp4" 
+  src="../assets/event-finder.mp4" 
   type="video/mp4">
 </video>
