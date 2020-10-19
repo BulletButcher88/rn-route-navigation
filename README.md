@@ -8,3 +8,7 @@ The aim is to make a basic web app for my friends bar, which hosts local bands o
 [Imgur](https://imgur.com/mijULd8)
 
 <img src="https://imgur.com/mijULd8"/>
+
+[img]https://i.imgur.com/mijULd8.mp4[/img]
+
+https://imgur.com/mijULd8
