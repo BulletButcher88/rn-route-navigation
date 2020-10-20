@@ -1,4 +1,5 @@
-# Gig Guide react native app expo
+# Gig Guide 
+## react native app expo
 
 City of Melbourne is home of one of the worlds most thriving music scenes. I am keen to explore ways to help better equip musicians, venues and punters thought mobile application. 
 
