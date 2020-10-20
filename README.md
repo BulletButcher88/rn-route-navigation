@@ -11,6 +11,7 @@ This project aims to explore the a basic landing page with screens for a public 
 <br>
 
 **Reflection on Learning**
+<br>
  Redux state management is useful to hold the clients state of ‘favorites” and “filter settings”. The aesthetics are reasonable, however react-native expo handling with navigation stack looks unwieldy.
 
 Navigation drawer and side menu feel outdated and lacks the flexibility. and I also thought I over did the colors for the UI.
